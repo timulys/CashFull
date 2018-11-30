@@ -1,17 +1,26 @@
 package my.finance.domain;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * 신문사 기사
  */
+@Entity
 public class Article {
-    private int uid;
-    private String title;
-    private String summary;
-    private String author;
-    private String href;
-    private Date pubDate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int uid;            // 신문사 기사 ID
+    @Column
+    private String title;       // 신문사 기사 제목
+    @Column
+    private String summary;     // 신문사 기사 요약
+    @Column
+    private String author;      // 신문사
+    @Column
+    private String href;        // 신문사 기사 링크
+    @Column
+    private Date pubDate;       // 신문시 기사 일자
 
     public int getUid() {
         return uid;

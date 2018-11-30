@@ -1,22 +1,36 @@
 package my.finance.domain;
 
+import javax.persistence.*;
 import java.util.List;
 
 /**
  * 회사 정보
  */
+@Entity
 public class Company {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int uid;                // 기업 ID
+    @Column
     private String name;            // 기업 이름
+    @Column
     private String code;            // 기업 코드
+    @Column
     private String totPrice;        // 기업 시가총액
+    @Column
     private String totStock;        // 기업 총주식수
+    @Column
     private String per;             // 기업 PER
+    @Column
     private String pbr;             // 기업 PBR
+    @Column
     private String otherPer;        // 같은 카테고리 평균 PER
+    @Column
     private String descp;           // 기업 개요
 
+    @OneToMany
     private List<Person> personList;   // 주주내용
+    @OneToOne
     private Finance finance;           // 재무재표
 
     public int getUid() {

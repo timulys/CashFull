@@ -1,18 +1,37 @@
 package my.finance.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+/**
+ * 실적 내용
+ */
+@Entity
 public class Results {
-    private String name;        // 실적 이름(ex : 2018/12)
-    private String sales;       // 매출액
-    private String profit;      // 영업이익
-    private String netIncome;   // 당기순이익
-    private String debtRatio;   // 부채비율
-    private String quickRatio;  // 당좌비율
-    private String reserveRatio;// 유보율
-    private String dividend;    // 배당금
-    private String marketdiv;   // 시가 배당률
-    private String divTendency; // 배당성향
-    private String inventory;   // 재고자산
-    private String receivableAcc;// 매출채권
+    @Column
+    private String name;            // 실적 이름(ex : 2018/12)
+    @Column
+    private String sales;           // 매출액
+    @Column
+    private String profit;          // 영업이익
+    @Column
+    private String netIncome;       // 당기순이익
+    @Column
+    private String debtRatio;       // 부채비율
+    @Column
+    private String quickRatio;      // 당좌비율
+    @Column
+    private String reserveRatio;    // 유보율
+    @Column
+    private String dividend;        // 배당금
+    @Column
+    private String marketdiv;       // 시가 배당률
+    @Column
+    private String divTendency;     // 배당성향
+    @Column
+    private String inventory;       // 재고자산
+    @Column
+    private String receivableAcc;   // 매출채권
 
     public String getSales() {
         return sales;
