@@ -1,7 +1,8 @@
 package my.finance.domain;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * 회사 정보
