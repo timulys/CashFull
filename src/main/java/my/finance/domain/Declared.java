@@ -10,19 +10,17 @@ import java.util.Date;
 public class Declared {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int uid;        // 종목공시 ID
-    @Column
+    private Long uid;        // 종목공시 ID
+    @Column(nullable = false)
     private String title;   // 종목공시 제목
-    @Column
     private String author;  // 종목공시 저자
-    @Column
     private Date pubDate;   // 종목공시 일자
 
-    public int getUid() {
+    public Long getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(Long uid) {
         this.uid = uid;
     }
 

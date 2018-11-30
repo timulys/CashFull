@@ -1,7 +1,6 @@
 package my.finance.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +9,18 @@ import java.util.List;
  */
 @Entity
 public class Finance {
-    @OneToMany
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long uid;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_finance_company"))
+    private Company company;
+
+    @OneToMany(mappedBy = "finance")
     private List<Results> annualResultsList;        // 연간 실적
-    @OneToMany
+
+    @OneToMany(mappedBy = "finance")
     private List<Results> quarterResultsList;       // 분기별 실적
 
     public Finance() {
@@ -20,19 +28,36 @@ public class Finance {
         this.quarterResultsList = new ArrayList<>();
     }
 
+    public Long getUid() {
+        return uid;
+    }
+
+    public void setUid(Long uid) {
+        this.uid = uid;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
     public List<Results> getAnnualResultsList() {
         return annualResultsList;
     }
 
-    public void addAnnualResultsList(Results results) {
-        this.annualResultsList.add(results);
+    public void setAnnualResultsList(List<Results> annualResultsList) {
+        this.annualResultsList = annualResultsList;
     }
 
     public List<Results> getQuarterResultsList() {
         return quarterResultsList;
     }
 
-    public void addQuarterResultsList(Results results) {
-        this.quarterResultsList.add(results);
+    public void setQuarterResultsList(List<Results> quarterResultsList) {
+        this.quarterResultsList = quarterResultsList;
     }
+
 }

@@ -1,19 +1,39 @@
 package my.finance.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * 주주정보
  */
 @Entity
 public class Person {
-    @Column
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long uid;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_person_company"))
+    private Company company;
+
     private String name;        // 이름
-    @Column
     private String stockCnt;    // 총 보유 주식 수
-    @Column
     private String stockRate;   // 총 보유 주식 비율
+
+    public Long getUid() {
+        return uid;
+    }
+
+    public void setUid(Long uid) {
+        this.uid = uid;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
     public String getName() {
         return name;

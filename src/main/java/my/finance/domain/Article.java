@@ -10,23 +10,19 @@ import java.util.Date;
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int uid;            // 신문사 기사 ID
-    @Column
+    private Long uid;            // 신문사 기사 ID
+    @Column(nullable = false)
     private String title;       // 신문사 기사 제목
-    @Column
     private String summary;     // 신문사 기사 요약
-    @Column
     private String author;      // 신문사
-    @Column
     private String href;        // 신문사 기사 링크
-    @Column
     private Date pubDate;       // 신문시 기사 일자
 
-    public int getUid() {
+    public Long getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(Long uid) {
         this.uid = uid;
     }
 
